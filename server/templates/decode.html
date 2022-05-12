@@ -1,0 +1,19 @@
+
+{% block decode %}
+<form action="#" method="post">
+    <h2>what do you need to decode :)</h2>
+    <p>Encoded string:</p>
+    <p><input type="text" name="encoded" maxlength="100"></p>
+    <p>key:</p>
+    <p><input type="text" name="key"></p>
+    <p><input type="submit" value="submit"></p>
+</form>       
+<form action="dados"method="get">
+    <p><input type="submit" value="dados"></p>
+</form>
+    {% if request.method == "POST" %}
+        <p>{{ string }}</p>
+        <p>{{ decript }}</p>
+        {% endif %}
+{% endblock %}
+
