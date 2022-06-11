@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>code and decode </title>
+</head>
+<body>
+    {% block content%}
+    <div >
+        <h2>Escolha o direcionamento da pagina</h2>
+        <a href="{{url_for('code.encode')}}">
+           <button>Encript</button> 
+        </a>
+        <a href="{{url_for('decode.decodes')}}">
+            <button>Decript</button>
+        </a>
+        <a href="{{url_for('database.data')}}">
+            <button>DATABASE</button>
+        </a>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>
+

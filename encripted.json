@@ -1,0 +1,22 @@
+{
+    "encripted": [
+        {
+            "id": "fdb16b3d13764fd2b45c83e385743737",
+            "string": "consegui",
+            "key": "MuvuCTKlNmZHuf5YJuAlvuycR7qQ9RwX-o2h8W83hgM=",
+            "encripted": "gAAAAABiM_FhpSjVltcA134bWXyfNVdCAts7-gl04KCIMwD0n1Jr1mFWS7OIZ1BfREGaM_IXFgrINwPG_bG9zDoiGETigYVbcA=="
+        },
+        {
+            "id": "084c9584b511412a9071236a6076eaa5",
+            "string": "luiz",
+            "key": "Npgx15opxkBcMfdNa-Rbr-ssKESywJbk_6FQjskU5JA=",
+            "encripted": "gAAAAABiM_FrtBivZq-YjbW4SPe90IkxxpF3TJCXqhkk2gjuKK1P0yKzAU3HkPfoRGH4NINzKUSZJGEroKdMLT403i1UPGzmsQ=="
+        },
+        {
+            "id": "7efe91745d92491aa56cd86b17aef31b",
+            "string": "teste",
+            "key": "2eUuOcNkWun-5yc1fxw1yFCbqG8w_B6nRfJFOWVK1hU=",
+            "encripted": "gAAAAABiM_FvV_fNH1NtyQKP_KeTGPrGPX4f2pUlvd6cwf1bfJakDKXrEhga5lejFCT784m2zrda4cI7bGsHnSyZ6GROwy4eQw=="
+        }
+    ]
+}
