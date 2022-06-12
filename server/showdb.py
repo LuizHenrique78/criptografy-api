@@ -13,5 +13,6 @@ db = Blueprint('database', __name__)
 def data():
     with open('encripted.json', "r") as read:
         json_data = json.load(read)
+        lista_de_dados = json_data["encripted"]
 
-    return render_template("show_data.html", json_data=json_data)
+    return render_template("show_data.html", json_data=json_data, lista_de_dados=lista_de_dados)

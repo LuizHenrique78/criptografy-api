@@ -7,7 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <p>show database</p>
-    <p>{{ json_data }}</p>
+
+    <table class="table">
+        {%  for keys in lista_de_dados  %}}
+        
+        <tr>
+            <th>id:</th>
+            <td>{{  keys["id"]    }}</td>
+        </tr>
+        <tr>
+            <th>string:</th>
+            <td>{{  keys["string"]    }}</td>
+        </tr>
+        <tr>
+            <th>encripted:</th>
+            <td>{{  keys["encripted"]    }}</td>
+        </tr>
+        <tr>
+            <th>key:</th>
+            <td>{{  keys["key"]    }}</td>
+        </tr>
+        
+        {%  endfor  %}
+        
+    </table>
 </body>
 </html>
+
+<style>
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+
+</style>
