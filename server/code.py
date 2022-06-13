@@ -6,6 +6,7 @@ from xmlrpc.client import boolean
 from pyrsistent import b
 from flask import Blueprint, render_template, request, redirect, url_for
 from server.libs.Encript import Encript 
+from server.libs.Manipulation import Manipulation as lib_manipulation
 import json
 
 code = Blueprint('code', __name__)
@@ -15,33 +16,19 @@ client = Encript()
 @code.route('/code', methods=['POST', 'GET'])
 def encode():
     if request.method == "POST":
-        
         user_string = request.form["String"]
-        key = client.gerar_key()
-        encripted = client.encrypt(key, user_string)
-        generate = uuid4()
-        print(generate)
-        dict = {"id": generate.hex,
-                "string": user_string , 
-                "key": key.decode("utf-8"),
-                "encripted":encripted.decode("utf-8")
-                }
-        try:
-            with open('encripted.json', "r+") as file: 
-                data = json.load(file)
-                print(type(data))
-                data["encripted"].append(dict)
-                file.seek(0)
-                json.dump(data, file)
-
-            with open('encripted.json', "r") as read:
-                json_data = json.load(read)
-
-    
-            return redirect(url_for("code.results", results=json_data)) 
-        except:
-            return  'Erro ao enviar a task'
-        
+        status = lib_manipulation.verifica_vazio(request.form["String"])
+        if status == False:
+            return "Nao envie o formulario vazio", 400
+        else:
+            dict, key, encripted  = client.gera_dict(user_string, client)
+            print(dict)
+            client.insiro_no_json(dict)
+            results = client.verifico_json("encripted.json", user_string )
+            if results == True:
+                return render_template("code.html", user_key=key, user_encripted=encripted)
+            else:
+                return "Erro generico ao enviar a task, problema na lib manipulation.py", 400
     else:
         return  render_template("code.html")
 
@@ -58,7 +45,4 @@ def basejson():
     
 @code.route("/<results>")
 def results(results):
-      
-    with open('encripted.json', "r+") as file: 
-        results = json.load(file)
     return  f"<h1>Dados1</h1><h1>{results}</h1>"

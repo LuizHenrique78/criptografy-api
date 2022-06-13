@@ -11,3 +11,12 @@
     <p><input type="submit" value="dados"></p>
 </form>
 {% endblock %}
+
+{%   if request.method == "POST"   %}
+    <table>
+        <th>key:</th>
+        <td>{{   user_key   }}</td>
+        <th>encripted:</th>
+        <td>{{   user_encripted   }}</td>
+    </table>
+{%   endif   %}
