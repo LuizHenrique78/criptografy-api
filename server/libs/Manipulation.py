@@ -4,27 +4,21 @@ import json
 
 class Manipulation:
     def __init__(self):
-        self.atributos()
-        
-        
-    def atributos(self):
-        pass
-
+        self.reset()
     
-    def get_queue(self):
-        return open('queue.txt', "r").read()
+    def reset(self):
+       self.index = 0
 
-    def get_json(self):
-        with open("encripted.json", "r") as file:
-            data_json = json.load(file)
-            return data_json
-
-    def write_queue(self, string):
+    def verifica_vazio(string):
+        quantidade = len(string)
+        if quantidade <= 0:
+            return False
+        else:
+            return True
+    
         
+            
     
 
 
-
-obj = Manipulation()
-print(obj.get_queue())
             
