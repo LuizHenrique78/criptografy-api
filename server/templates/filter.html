@@ -9,7 +9,6 @@
 <body>
 
     <table class="table"> 
-        {%  if status == True           %}
         <tr>
             <th>id:</th>
             <td>{{  lista_de_dados["id"]    }}</td>
@@ -26,30 +25,8 @@
             <th>key:</th>
             <td>{{  lista_de_dados["key"]    }}</td>
         </tr>
-        {%  else  %} 
-        {%  index = 0   %}   
-        {%  for keys in lista_de_dados  %}
         
-        <tr>
-            <th>id:</th>
-            <td>{{  keys[index]["id"]    }}</td>
-        </tr>
-        <tr>
-            <th>string:</th>
-            <td>{{  keys["string"]    }}</td>
-        </tr>
-        <tr>
-            <th>encripted:</th>
-            <td>{{  keys["encripted"]    }}</td>
-        </tr>
-        <tr>
-            <th>key:</th>
-            <td>{{  keys["key"]    }}</td>
-        </tr>
-        {%  index += 1   %} 
-        
-        {%  endfor  %}
-        {%  endif   %}
+
         
     </table>
 </body>
