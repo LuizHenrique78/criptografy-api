@@ -45,7 +45,7 @@ class Encript:
         return dict, key, encripted  
     
     def insiro_no_json(self, dict):
-        self.write_json(dict, "encripted.json")
+        self.write_json(dict, "server/database/encripted.json")
             
     
     def write_json(self, dict, filename):

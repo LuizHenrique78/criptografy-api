@@ -20,7 +20,7 @@ def decodes():
         #print(type(user_encoded))
         
         try:
-            with open('encripted.json', "r") as read:
+            with open('server/database/encripted.json', "r") as read:
                 json_data = json.load(read)
                 list = json_data["encripted"]
             determined_index = list.index(next(filter(lambda n: n.get("encripted") == str(user_encoded), list)))
