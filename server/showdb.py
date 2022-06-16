@@ -1,12 +1,14 @@
 from http import client
+from pydoc import cli
 import string
 from uuid import uuid4
+from wsgiref.util import request_uri
 from xmlrpc.client import boolean
 from pyrsistent import b
 from flask import Blueprint, render_template, request, redirect, url_for
 from server.libs.Encript import Encript 
 import json
-
+lib_encript = Encript()
 db = Blueprint('database', __name__)
 
 @db.route('/database', methods=['GET'])
@@ -21,29 +23,8 @@ def data():
 def search():
     args = request.args
     reference = args.get('ref')
-    try:
-        with open('server/database/encripted.json', "r") as read:
-            json_data = json.load(read)
-            list = json_data["encripted"]
-            contador = 0 
-            contador_iguais = 0
-        for dict in list:
-            for keys in dict:
-                value = dict.get(keys)
-                dici = list[contador]
-                print(value)
-                if value == reference:
-                    ref = value
-                    list_dict = []
-                    dici = list[contador]
-                    list_dict.append(dici)
-                    contador_iguais += 1
-                    print(contador_iguais)
-                    if reference == ref:
-                        return render_template("filter.html", lista_de_dados=dici)
-            contador += 1
-        
-        
-                       
-    except: 
-        return "nao rolou"
+    retorno, lista_de_conteudo = lib_encript.pesquisa_no_json(ref=reference)
+    if retorno == True:
+        return render_template("filter.html", lista_de_dados=lista_de_conteudo)
+    else:
+        return "sorry an error occured", 400        

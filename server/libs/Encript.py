@@ -13,7 +13,11 @@ class Encript:
     def atributos(self):
         self.key = Fernet.generate_key()
         self.contador = 0
-    
+        self.contador1 = 0
+        self.json_as_r = open('server/database/encripted.json', "r")
+        self.json_as_r_plus = open('server/database/encripted.json', "r+")
+        
+
     def gerar_key(self):
         key = self.key
         return key
@@ -75,3 +79,22 @@ class Encript:
                 except:
                     return False
                 
+    def pesquisa_no_json(self, ref):
+        self.atributos()
+        try:
+            json_data = json.load(self.json_as_r)
+            list = json_data["encripted"]
+            for dict in list:
+                for keys in dict:
+                    value_on_dict = dict.get(keys)
+                    if value_on_dict == ref:
+                        dici = list[self.contador]
+                        list_dict = []
+                        list_dict.append(dici)
+                        print(list_dict)
+                        self.contador1 += 1
+                        return True, list_dict
+                self.contador +=1
+        except:
+            return False, False 
+        
