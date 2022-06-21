@@ -30,9 +30,7 @@ def encode():
                 return render_template("code.html", user_key=key.decode('utf-8'), user_encripted=encripted.decode('utf-8'))
             else:
                 return "Erro generico ao enviar a task, problema na lib manipulation.py", 400
+    elif 
     else:
         return  render_template("code.html")
   
-@code.route("/<results>")
-def results(results):
-    return  f"<h1>Dados1</h1><h1>{results}</h1>"
